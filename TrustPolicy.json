@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+  {
+    "Effect": "Allow",
+    "Principal": {
+      "Federated": "arn:aws:iam::433146468867:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/D29A2B641B603283D312F3A2280D4A7E"
+    },
+    "Action": "sts:AssumeRoleWithWebIdentity",
+    "Condition": {
+      "StringEquals": {
+        "oidc.eks.eu-west-1.amazonaws.com/id/D29A2B641B603283D312F3A2280D4A7E:sub": "system:serviceaccount:grafana-agent:grafana-agent"
+      }
+    }
+  }
+]
+}
