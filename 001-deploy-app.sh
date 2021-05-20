@@ -1,3 +1,4 @@
+rm -rf workshopfiles
 rm -vf ${HOME}/.aws/credentials
 curl -sSL https://raw.githubusercontent.com/aws-samples/one-observability-demo/main/PetAdoptions/envsetup.sh | bash -s stable
 export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account)

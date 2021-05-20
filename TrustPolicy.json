@@ -1,17 +1,29 @@
 {
   "Version": "2012-10-17",
   "Statement": [
-  {
-    "Effect": "Allow",
-    "Principal": {
-      "Federated": "arn:aws:iam::433146468867:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/D29A2B641B603283D312F3A2280D4A7E"
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::433146468867:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/933E541A70E87EB2437588100F223C25"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "oidc.eks.eu-west-1.amazonaws.com/id/933E541A70E87EB2437588100F223C25:sub": "system:serviceaccount:prometheus:amp-iamproxy-service-account"
+        }
+      }
     },
-    "Action": "sts:AssumeRoleWithWebIdentity",
-    "Condition": {
-      "StringEquals": {
-        "oidc.eks.eu-west-1.amazonaws.com/id/D29A2B641B603283D312F3A2280D4A7E:sub": "system:serviceaccount:grafana-agent:grafana-agent"
+     {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::433146468867:oidc-provider/oidc.eks.eu-west-1.amazonaws.com/id/933E541A70E87EB2437588100F223C25"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "oidc.eks.eu-west-1.amazonaws.com/id/933E541A70E87EB2437588100F223C25:sub": "system:serviceaccount:grafana:amp-iamproxy-service-account"
+        }
       }
     }
-  }
-]
+  ]
 }
